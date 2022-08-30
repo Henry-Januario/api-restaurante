@@ -43,6 +43,28 @@ const reservasController = (app) => {
         }
     })
 
+    app.get('/reservas/email/:email', async (req, res) => {
+        const email = req.params.email
+
+        try {
+            const reserva = await ReservasValidacoes._validaGetReservas(email, reservasModel.verUmaReservaEmail)
+            res.status(200).json(
+                {
+                    "reserva": reserva,
+                    "msg": `A reserva ${email} foi agendada`,
+                    "erro": false
+                }
+            )
+        } catch (error) {
+            res.status(400).json(
+                {
+                    "msg": error.message,
+                    "erro": true
+                }
+            )
+        }
+    })
+
     app.get('/reservas/data/:data', async (req, res) => {
         const data = req.params.data
 
@@ -104,6 +126,26 @@ const reservasController = (app) => {
             })
         }
     })
+
+    app.delete('/reservas/email/:email', async (req, res) => {
+        const email = req.params.email
+        try {
+            const deletaReservaEmail = await ReservasValidacoes._ValidaDeletaReserva(email, reservasModel.deletaReservaEmail)
+
+            res.status(200).json({
+                "msg": "Reserva deletada com sucesso",
+                "Reserva": deletaReservaEmail,
+                "erro": false
+            })
+
+        } catch (error) {
+            res.status(400).json({
+                "msg": error.message,
+                "erro": true
+            })
+        }
+    })
+
     app.put('/reservas/idReserva/:idReserva', async (req, res) => {
         const idReserva = req.params.idReserva
         const body = req.body

@@ -23,7 +23,7 @@ const ReservasValidacoes = {
     },
 
     _ValidaReqBodyReservas : async (body)=>{
-        if(body.nomeCliente && body.data && body.hora && body.lugares && body.mesa){
+        if(body.nomeCliente && body.data && body.hora && body.lugares && body.mesa && body.email){
             return body
         }else{
             throw new Error ("Não foi possivel atualizar a reserva!")

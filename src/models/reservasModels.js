@@ -8,6 +8,10 @@ const reservasModel = {
     verUmaReserva : async (idReserva)=>{
         return await reservasDAO.verUmaReserva(idReserva)
     },
+    
+    verUmaReservaEmail : async (email)=>{
+        return await reservasDAO.verUmaReservaEmail(email)
+    },
 
     verUmaReservaData : async (data)=>{
         return await reservasDAO.verUmaReservaData(data)
@@ -16,9 +20,15 @@ const reservasModel = {
     agendarReserva : async (reserva)=>{
         return await reservasDAO.agendarReserva(reserva)
     },
+
     deletaReserva : async (nomeCliente)=>{
         return await reservasDAO.deletaReserva(nomeCliente)
     },
+
+    deletaReservaEmail : async (email)=>{
+        return await reservasDAO.deletaReservaEmail(email)
+    },
+
     atualizaReserva : async (idReserva, reservaAtualizada)=>{
         return await reservasDAO.atualizaReserva(idReserva, reservaAtualizada)
     }

@@ -32,6 +32,24 @@ const reservasDAO = {
         })
     },
 
+    verUmaReservaEmail : (email) =>{
+        const VER_UMA_RESERVA = `
+        SELECT * FROM RESERVAS
+        WHERE email = ?`
+
+        return new Promise((resolve, reject)=>{
+            db.all(VER_UMA_RESERVA, email, (error, row)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(row)
+                }
+
+            })
+        })
+    },
+
+
     verUmaReservaData : (data) =>{
         const VER_UMA_RESERVA = `
         SELECT * FROM RESERVAS
@@ -52,12 +70,12 @@ const reservasDAO = {
 
     agendarReserva : (reserva) =>{
         const AGENDA_RESERVA = `
-        INSERT INTO RESERVAS (nomeCliente, data, hora, lugares, mesa)
-        VALUES (?,?,?,?,?)
+        INSERT INTO RESERVAS (nomeCliente, data, hora, lugares, mesa, email)
+        VALUES (?,?,?,?,?,?)
         `
         return new Promise((resolve, reject)=>{
             db.run(AGENDA_RESERVA,
-                reserva.nomeCliente, reserva.data, reserva.hora, reserva.lugares, reserva.mesa,
+                reserva.nomeCliente, reserva.data, reserva.hora, reserva.lugares, reserva.mesa, reserva.email,
                 (error)=>{
                     if(error){
                         reject(error)
@@ -86,15 +104,30 @@ const reservasDAO = {
         })
     },
 
+    deletaReservaEmail : (email) =>{
+        const DELETA_RESERVA = `
+        DELETE FROM RESERVAS
+        WHERE email = ?
+        `
+        return new Promise((resolve, reject)=>{
+            db.get(DELETA_RESERVA, email, (error, row)=>{
+                if(error)
+                    reject(error)
+                else
+                    resolve(row)
+            })
+        })
+    },
+
     atualizaReserva : (idReserva, reservaAtualizada)=>{
         const ATUALIZA_RESERVA = `
         UPDATE RESERVAS
-        SET nomeCliente = ?, data = ?, hora = ?, lugares = ?, mesa = ?
+        SET nomeCliente = ?, data = ?, hora = ?, lugares = ?, mesa = ?, email = ?
         WHERE idReserva = ?
         `
         return new Promise((resolve, reject)=>{
             db.run(ATUALIZA_RESERVA,
-                reservaAtualizada.nomeCliente, reservaAtualizada.data, reservaAtualizada.hora, reservaAtualizada.lugares,reservaAtualizada.mesa,
+                reservaAtualizada.nomeCliente, reservaAtualizada.data, reservaAtualizada.hora, reservaAtualizada.lugares,reservaAtualizada.mesa, reservaAtualizada.email,
                 idReserva,
                 (error)=>{
                     if(error)
