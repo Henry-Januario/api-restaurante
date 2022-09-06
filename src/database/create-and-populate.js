@@ -34,7 +34,7 @@ const ADD_RESERVAS_DATA = `
         ('Joana Frente', '12-09-2022', 19, 2, 14, "joanafrente@gmail.com"),
         ('Mariana Joaquina', '12-09-2022', 19, 5, 2, "marianajoaquina@gmail.com"),
         ('Pedro de Moura', '12-09-2022', 19, 4, 8, "pedromourinha@gmail.com"),
-        ('Conceição', '12-09-2022', 21, 6, 15, "conceicaoconceicao2@gmail.com")
+        ('Conceição', '12-09-2022', 21, 6, 15, "conceicaoconceicao24@gmail.com")
         `
 
 function criaTabelaReservas() {
