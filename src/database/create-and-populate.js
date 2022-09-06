@@ -27,7 +27,7 @@ const ADD_RESERVAS_DATA = `
     VALUES 
         ('Sr. João Pedro de Moura', '11-09-2022', 19, 4, 8, "primeirohenry@gmail.com"),
         ('Maria da Conceição', '11-09-2022', 21, 6, 15, "mariaconceicao@gmail.com"),
-        ('Joana Costa', '11-09-2022', 19, 2, 6, "joanacosta@gmail.com"),
+        ('Joana Costa', '11-09-2022', 19, 2, 6, "joanacosta1@gmail.com"),
         ('Mariano Joaquim', '11-09-2022', 19, 5, 22, "mariojoaquim@gmail.com"),
         ('João Gabriel', '12-09-2022', 19, 4, 1, "joaogabriel@gmail.com"),
         ('Maria Joana', '12-09-2022', 21, 6, 12, "mariajoana1@gmail.com"),
