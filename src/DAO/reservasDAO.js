@@ -70,12 +70,12 @@ const reservasDAO = {
 
     agendarReserva : (reserva) =>{
         const AGENDA_RESERVA = `
-        INSERT INTO RESERVAS (nomeCliente, data, hora, lugares, mesa, email)
-        VALUES (?,?,?,?,?,?)
+        INSERT INTO RESERVAS (nomeCliente, data, hora, lugares, email)
+        VALUES (?,?,?,?,?)
         `
         return new Promise((resolve, reject)=>{
             db.run(AGENDA_RESERVA,
-                reserva.nomeCliente, reserva.data, reserva.hora, reserva.lugares, reserva.mesa, reserva.email,
+                reserva.nomeCliente, reserva.data, reserva.hora, reserva.lugares, reserva.email,
                 (error)=>{
                     if(error){
                         reject(error)
@@ -122,12 +122,12 @@ const reservasDAO = {
     atualizaReserva : (idReserva, reservaAtualizada)=>{
         const ATUALIZA_RESERVA = `
         UPDATE RESERVAS
-        SET nomeCliente = ?, data = ?, hora = ?, lugares = ?, mesa = ?, email = ?
+        SET nomeCliente = ?, data = ?, hora = ?, lugares = ?, email = ?
         WHERE idReserva = ?
         `
         return new Promise((resolve, reject)=>{
             db.run(ATUALIZA_RESERVA,
-                reservaAtualizada.nomeCliente, reservaAtualizada.data, reservaAtualizada.hora, reservaAtualizada.lugares,reservaAtualizada.mesa, reservaAtualizada.email,
+                reservaAtualizada.nomeCliente, reservaAtualizada.data, reservaAtualizada.hora, reservaAtualizada.lugares, reservaAtualizada.email,
                 idReserva,
                 (error)=>{
                     if(error)

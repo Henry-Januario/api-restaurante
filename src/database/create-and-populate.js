@@ -17,24 +17,23 @@ const RESERVAS_SCHEMA = `
         "data" varchar(64),
         "hora" int,
         "lugares" int,
-        "mesa" int,
         "email" varchar(64)
         
     );`
 
 const ADD_RESERVAS_DATA = `
-    INSERT INTO RESERVAS (NOMECLIENTE, DATA, HORA, LUGARES, MESA, EMAIL)
+    INSERT INTO RESERVAS (NOMECLIENTE, DATA, HORA, LUGARES, EMAIL)
     VALUES 
-        ('Sr. João Pedro de Moura', '11-09-2022', 19, 4, 8, "primeirohenry@gmail.com"),
-        ('Maria da Conceição', '11-09-2022', 21, 6, 15, "mariaconceicao@gmail.com"),
-        ('Joana Costa', '11-09-2022', 19, 2, 6, "joanacosta1@gmail.com"),
-        ('Mariano Joaquim', '11-09-2022', 19, 5, 22, "mariojoaquim@gmail.com"),
-        ('João Gabriel', '12-09-2022', 19, 4, 1, "joaogabriel@gmail.com"),
-        ('Maria Joana', '12-09-2022', 21, 6, 12, "mariajoana1@gmail.com"),
+        ('Sr. João Pedro de Moura', '11-09-2022', 19, 4, "primeirohenry@gmail.com"),
+        ('Maria da Conceição', '11-09-2022', 21, 6, "mariaconceicao@gmail.com"),
+        ('Joana Costa', '11-09-2022', 19, 2, "joanacosta1@gmail.com"),
+        ('Mariano Joaquim', '11-09-2022', 19, 5, "mariojoaquim@gmail.com"),
+        ('João Gabriel', '12-09-2022', 19, 4, "joaogabriel@gmail.com"),
+        ('Maria Joana', '12-09-2022', 21, 6, "mariajoana1@gmail.com"),
         ('Joana Frente', '12-09-2022', 19, 2, 14, "joanafrente@gmail.com"),
-        ('Mariana Joaquina', '12-09-2022', 19, 5, 2, "marianajoaquina@gmail.com"),
-        ('Pedro de Moura', '12-09-2022', 19, 4, 8, "pedromourinha@gmail.com"),
-        ('Conceição', '12-09-2022', 21, 6, 15, "conceicaoconceicao24@gmail.com")
+        ('Mariana Joaquina', '12-09-2022', 19, 5, "marianajoaquina@gmail.com"),
+        ('Pedro de Moura', '12-09-2022', 19, 4, "pedromourinha@gmail.com"),
+        ('Conceição', '12-09-2022', 21, 6, "conceicaoconceicao24@gmail.com")
         `
 
 function criaTabelaReservas() {
