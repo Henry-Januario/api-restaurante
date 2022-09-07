@@ -15,7 +15,7 @@ const RESERVAS_SCHEMA = `
         "idReserva" INTEGER PRIMARY KEY AUTOINCREMENT,
         "nomeCliente" varchar(64),
         "data" varchar(64),
-        "hora" int,
+        "hora" TIME,
         "lugares" int,
         "email" varchar(64)
         
@@ -33,7 +33,8 @@ const ADD_RESERVAS_DATA = `
         ('Joana Frente', '12-09-2022', 19, 2, "joanafrente@gmail.com"),
         ('Mariana Joaquina', '12-09-2022', 19, 5, "marianajoaquina@gmail.com"),
         ('Pedro de Moura', '12-09-2022', 19, 4, "pedromourinha@gmail.com"),
-        ('Conceição', '12-09-2022', 21, 6, "conceicaoconceicao24@gmail.com")
+        ('Conceição', '12-09-2022', 21, 6, "conceicaoconceicao24@gmail.com"),
+        ('Teste', '12-09-2022', 21, 6, "teste@gmail.com")
         `
 
 function criaTabelaReservas() {
